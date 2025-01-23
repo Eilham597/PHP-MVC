@@ -26,6 +26,7 @@ class Router {
         } elseif ($route === 'delete_user') {
             // UserController->delete()
             $controller->delete();
+
         } else {
             // UserController->list()
             $controller->list();
