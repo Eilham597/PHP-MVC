@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8" />
-		<title>Exercice Routeur MVC</title>
-	</head>
-	<body>
-		<header>
-			<nav>
-				<ul>
-					<li>
-						<a href="index.php">Accueil</a>
-					</li>
-					<li>
-						<a href="index.php?route=a-propos">À propos</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<?php
-			if ($route === "home") {
-				require "home.phtml";
-			} elseif ($route === "about") {
-				require "about.phtml";
-			} elseif ($route === "contact") {
-				require "contact.phtml";
-			} elseif ($route === "notFound") {
-				require "notFound.phtml";
-			}
-		?>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title><?= $pageTitle ?></title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.php?route=list_users">Liste</a>
+            <a href="index.php?route=create_user">Créer</a>
+        </nav>
+    </header>
+
+    <main>
+        <?php
+        if ($route === "list_users") {
+            require "users/list.phtml";
+        } elseif ($route === "show_user") {
+            require "users/show.phtml";
+        } elseif ($route === "create_user") {
+            require "users/create.phtml";
+        } elseif ($route === "update_user") {
+            require "users/update.phtml";
+        } elseif ($route === "delete_user") {
+            require "users/delete.phtml";
+        }
+        ?>
+    </main>
+
+    <footer>
+        <p>&copy; Gestion des Utilisateurs</p>
+    </footer>
+</body>
 </html>
